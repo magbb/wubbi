@@ -1,0 +1,70 @@
+{% extends "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<h1>Split verses ({{chapter}}, {{sentence}}):</h1>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+  	<h1 style="color:red;">Error!</h1>
+    <ul class="flashes alert alert-danger">
+    {% for message in messages %}
+      <li style="color:red;">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<h3>Please split the two verses, using # as delimiter: </h3>
+
+<div style="width:100%; display:inline-block;">
+    <div style="float:left;">
+        <a href="/newsplit/{{window[1]}}/{{window[3]}}">Previous verse</a>
+    </div>
+    <div style="float:right;">
+        <a href="/newsplit/{{window[2]}}/{{window[4]}}">Next verse</a>
+    </div>
+</div>
+
+<div id="wrapper">
+    <div>
+        <form action="/newsplit/{{chapter}}/{{sentence}}" method="post">
+            {{ wtf.quick_form(form) }}
+        </form>
+    </div>
+    <div style="margin-top: 2em; width:100%;" class="display nowrap">
+      <table id="splittable">
+          <thead>
+            <tr>
+                {% for item in formObject[0] %}
+                    {% if item.name != "csrf_token" %}
+                        <th>{{item.name}}</th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for object in formObject %}
+              <tr>
+                  {% for item in object %}
+                    {% if item.name != "csrf_token" %}
+                      <td>{{item.data}}</td>
+                    {% endif %}
+                   {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+
+    <script type="text/javascript">
+        unigram = $('#splittable').DataTable( {} );
+    </script>
+{% endblock %}

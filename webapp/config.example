@@ -1,0 +1,6 @@
+dbConnectString = 'postgresql://username:password@localhost/wubbi'
+host = '127.0.0.1'
+port = 5432
+debug = False
+pin_security = True
+flask_port = 5001

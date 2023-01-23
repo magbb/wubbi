@@ -1,0 +1,102 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+  {{super()}}
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"></link>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css"></link>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
+  <style type="text/css">
+    .center {
+      display: inline-block;
+    }
+
+    .highlight{
+        background-color: yellow;
+    }
+
+    .target{
+        color: #c9302c;
+        font-weight: bold;
+    }
+
+    .controller{
+        color: #337ab7;
+        font-weight: bold;
+    }
+
+    .secondary_controller {
+        color: #5cb85c;
+        font-weight: bold;
+    }
+  </style>
+{% endblock %}
+
+{% block title %}
+Wubbi
+{% endblock %}
+
+{% block body %}
+    {% block navbar %}
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand active" href="#">Wubbi</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/wubbi">Home</a></li>
+          <li><a href="impressum">Impressum</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{username}}</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    {% endblock %}
+
+    <div class="container">
+        {% block content %}
+
+        {% endblock %}
+
+        <footer style="margin-bottom: 2em;">
+        </footer>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+          <div class="center">
+            <h3>© Magnus Breder Birkenes – 2018</h3>
+          </div>
+          <div class="center" style="float:right; line-height: 60px;">
+            <a href="http://flask.pocoo.org/"><img
+   src="static/images/powered-by-flask-s.png"
+   border="0"
+   alt="powered by Flask"
+   title="powered by Flask"
+   style="margin-right: 10px;"></a>
+            <img style="margin-right: 10px;" src="static/images/postgres.gif"></img>
+          </div>
+      </div>
+    </footer>
+
+    {% block scripts %}
+        {{super()}}
+        <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.colVis.min.js"></script>
+        <script src="//cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js
+        "></script>
+        <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+        <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+        <script src="//cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+        <script src="//cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    {% endblock %}
+{% endblock %}
+
+

@@ -1,0 +1,35 @@
+{% extends "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+  	<h1 style="color:red;">Error!</h1>
+    <ul class="flashes alert alert-danger">
+    {% for message in messages %}
+      <li style="color:red;">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+	<div align="center">
+		<img src="static/logo.png" alt="Wubbi logo" width="35%" height="35%">
+	</div>
+
+<div>
+	<form action="search" method="post">
+            {{ wtf.quick_form(searchForm) }}
+    </form>
+</div>
+
+<div class="panel panel-default" style="margin-top: 2em;"">
+  <div class="panel-heading">Welcome to Wubbi!</div>
+  <div class="panel-body">
+  	<p><strong>Wubbi</strong> is a web service providing quick access to the lexicon of the <a href="http://www.deutschdiachrondigital.de/"><it>Referenzkorpus Altdeutsch</it></a> (Old High German and Old Saxon, released under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/de/">CC BY-NC-SA 3.0 DE</a>), including token-level annotations. The corpus was downloaded from the <a href="http://hdl.handle.net/11022/0000-0003-37E5-D">Laudatio Repository</a> and converted from ELAN XML into a PostgreSQL database.</p>
+  	<p>Searching is a simple as entering a word form. Due to the rich graphematic variation in medieval manuscripts and the transcription principles of editorial practice, the search is fuzzy be default. Enclose the word in quotation marks to do an exact search: "uuortes". Search for the word forms of a certain lemma by prefixing it with @:  @wort. You can also search via New High German, by using =: =Wort. Be warned, however, that this might be considered as cheating. :)</p>
+  </div>
+</div>
+
+{% endblock %}

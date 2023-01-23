@@ -1,0 +1,61 @@
+{% extends "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<div>
+  <form action="search" method="post">
+            {{ wtf.quick_form(searchForm) }}
+    </form>
+</div>
+
+<div>
+      <table id="resultsTable" class="table table-responsive table-condensed">
+          <thead class="thead-inverse">
+            <tr>
+                {% for item in formObject[0] %}
+                {% set headloop = loop %}
+                      <th>{{item.name}}</th>
+                {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for object in formObject %}
+            	{% set objloop = loop %}
+              <tr>
+                  {% for item in object %}
+                  	{% set colloop = loop %}
+                      {% if colloop.index == 1 %}
+                        <td style="font-weight: bold;">{{item.data}}</td>
+                  	  {% elif colloop.index == 2 %}
+                      	<td style="font-weight: bold;"><a href="{{urlList[objloop.index-1]}}" target="_blank">{{item.data}}</a></td>
+                      {% elif colloop.index == 7 %}
+                        <td>{{item.data[0:25]}}</td>
+                      {% else %}
+                      	<td>{{item.data}}</td>
+                    {% endif %}
+                   {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#resultsTable').DataTable({
+      retrieve: true,
+      paging: true,
+      searching: true,
+      scrollX: true,
+      keepConditions: true,
+       "aaSorting": []
+     }
+    );
+} );
+</script>
+{% endblock %}
