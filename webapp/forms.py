@@ -1,12 +1,11 @@
-from flask_wtf import Form as FlaskForm
-from wtforms import StringField, TextAreaField, BooleanField, SelectField,\
-    SubmitField
-from wtforms.validators import Required
+from flask_wtf import FlaskForm
+from wtforms import StringField, TextAreaField, BooleanField, SelectField,SubmitField
+from wtforms.validators import InputRequired
 from .models import Token, Lemmata
 from . import db
 
 class SearchForm(FlaskForm):
-    searchString = StringField('Search', [Required()])
+    searchString = StringField('Search', [InputRequired()])
     submit = SubmitField('Go!')
 
 class ResultsForm(FlaskForm):
