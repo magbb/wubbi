@@ -12,6 +12,7 @@ Searching is as simple as entering a word form. Due to the rich graphematic vari
 
 # References
 Referenzkorpus Altdeutsch 1.0: Karin Donhauser, Jost Gippert, Rosemarie Lühr. 2017. Deutsch Diachron Digital. Referenzkorpus Altdeutsch. Humboldt-Universität zu Berlin. Homepage: http://www.deutschdiachrondigital.de/rea/. DOI: https://doi.org/10.34644/laudatio-dev-xyV0DnMB7CArCQ9CuAeJ.
+
 Laudatio (Guescini & Odebrecht 2020): Guescini, Rolf; Odebrecht, Carolin (2020): Laudatio Repository - Long-term Access and Usage of Deeply Annotated Information: Berlin. 
 
 # License
