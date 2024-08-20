@@ -18,4 +18,4 @@ Laudatio (Guescini & Odebrecht 2020): Guescini, Rolf; Odebrecht, Carolin (2020):
 # License
 CC BY-NC-SA 3.0
 
-Magnus Breder Birkenes, Philipps Unveristy of Marburg, 2018
+Magnus Breder Birkenes, Philipps University of Marburg, 2018
